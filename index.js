@@ -37,6 +37,21 @@ function inputForm() {
   <button id = "sort1">Sort 1</button>
   <button id = "sortAll">Sort All</button>
   `;
+  const inputHolder = inputFromUser.querySelector("#input");
+  const addButton = inputFromUser.querySelector("#addNumber");
+  addButton.addEventListener("click", () => {
+    const enteredNumber = Number(inputHolder.value);
+    addToBank(enteredNumber);
+  });
+  const sortOneButton = inputFromUser.querySelector("#sort1");
+  sortOneButton.addEventListener("click", () => {
+    sortOne();
+  });
+  const sortAllButton = inputFromUser.querySelector("#sortAll");
+  sortAllButton.addEventListener("click", () => {
+    sortAll();
+  });
+
   return inputFromUser;
 }
 
