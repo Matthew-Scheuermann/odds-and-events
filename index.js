@@ -28,6 +28,18 @@ function sortAll() {
   }
 }
 
+// UI
+function inputForm() {
+  const inputFromUser = document.createElement("form");
+  inputFromUser.innerHTML = `
+  <input id = "input" type = "number">
+  <button id = "addNumber">Add Number</button>
+  <button id = "sort1">Sort 1</button>
+  <button id = "sortAll">Sort All</button>
+  `;
+  return inputFromUser;
+}
+
 // testing
 // addToBank(8);
 // addToBank(5);
