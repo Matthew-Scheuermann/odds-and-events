@@ -29,6 +29,8 @@ function sortAll() {
 }
 
 // UI
+
+// input form
 function inputForm() {
   const inputFromUser = document.createElement("form");
   inputFromUser.innerHTML = `
@@ -53,6 +55,20 @@ function inputForm() {
   });
 
   return inputFromUser;
+}
+
+// display
+function dataDisplay(label, numbersArray) {
+  const container = document.createElement("section");
+  const header = document.createElement("h2");
+  header.innerText = label;
+  container.append(header);
+  numbersArray.forEach((number) => {
+    const eachNumber = document.createElement("span");
+    eachNumber.innerText = number;
+    container.append(eachNumber);
+  });
+  return container;
 }
 
 // testing
