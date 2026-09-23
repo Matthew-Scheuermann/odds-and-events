@@ -8,7 +8,7 @@ let evensArray = [];
 // Take user input for number bank
 function addToBank(number) {
   bankArray.push(number);
-  //   render();
+  render();
 }
 
 // Sort1 number
@@ -19,7 +19,7 @@ function sortOne() {
   } else {
     oddsArray.push(number);
   }
-  // render();
+  render();
 }
 
 function sortAll() {
@@ -65,11 +65,39 @@ function dataDisplay(label, numbersArray) {
   container.append(header);
   numbersArray.forEach((number) => {
     const eachNumber = document.createElement("span");
-    eachNumber.innerText = number;
+    eachNumber.innerText = number + " ";
     container.append(eachNumber);
   });
   return container;
 }
+
+// render
+function render() {
+  const app = document.querySelector("#app");
+  app.innerHTML = `
+  <h1>Odds and Events</h1>
+  <div id = "formPlaceholder"></div>
+  <div id = "bankPlaceholder"></div>
+  <div id = "oddsPlaceholder"></div>
+  <div id = "evensPlaceholder"></div>
+  
+  `;
+  app.querySelector("#formPlaceholder").replaceWith(inputForm());
+
+  app
+    .querySelector("#bankPlaceholder")
+    .replaceWith(dataDisplay("Bank", bankArray));
+
+  app
+    .querySelector("#oddsPlaceholder")
+    .replaceWith(dataDisplay("Odds", oddsArray));
+
+  app
+    .querySelector("#evensPlaceholder")
+    .replaceWith(dataDisplay("Evens", evensArray));
+}
+
+render();
 
 // testing
 // addToBank(8);
@@ -77,3 +105,4 @@ function dataDisplay(label, numbersArray) {
 // addToBank(2);
 // sortAll();
 // console.log(oddsArray, evensArray);
+// console.log(dataDisplay("bank", [8, 6, 7]));
